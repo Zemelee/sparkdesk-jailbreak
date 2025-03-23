@@ -1,5 +1,7 @@
 <template>
-  <div>此项目已开源至:</div>
+  <div style="display: flex; justify-content: center; width: 100%;">
+    <div class="top">此项目已开源至: https://github.com/Zemelee/sparkdesk</div>
+  </div>
   <div style="margin-left:50px; display: flex; flex-wrap: wrap; justify-content: flex-start;">
     <div class="reply-left" style="border: 1px solid red">
       <!-- logo -->
@@ -49,7 +51,6 @@
       </div>
     </div>
   </div>
-
 
 </template>
 
@@ -256,6 +257,9 @@ const delMessage = () => {
 
 
 <style scoped>
+.top{
+  margin:10px auto;
+}
 .reply-left {
   display: flex;
   width: 47%;
