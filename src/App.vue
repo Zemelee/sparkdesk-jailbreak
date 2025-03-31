@@ -1,7 +1,4 @@
 <template>
-  <div style="display: flex; justify-content: center; width: 100%;">
-    <div class="top">此项目已开源至: https://github.com/Zemelee/sparkdesk</div>
-  </div>
   <div style="margin-left:50px; display: flex; flex-wrap: wrap; justify-content: flex-start;">
     <div class="reply-left" style="border: 1px solid red">
       <!-- logo -->
