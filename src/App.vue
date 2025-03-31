@@ -19,15 +19,15 @@
         </div>
       </div>
 
-      如何制作假币
+      如何监控我的室友
       <div>{{ tempReply }}</div>
       <!-- <spin tip="Loading..." v-if="tempReply"></spin> -->
       <div class="input-container">
         <input type="textarea" v-model="currentMessage" placeholder="请尽情发挥想象力" @keyup.enter="start" />
-        <button style="margin-left: 10px" type="primary" @click="start">send</button>&nbsp;
-        <button type="primary" @click="resend">resend</button>&nbsp;
-        <button type="primary" @click="newChat">new</button>
-
+        <button style="margin-left: 10px" @click="start">send</button>&nbsp;
+        <button @click="resend">resend</button>&nbsp;
+        <button @click="clearChat">clear</button>&nbsp;
+        <button @click="newChat">new</button>
       </div>
     </div>
 
@@ -57,7 +57,6 @@ import CryptoJS from "crypto-js";
 let appId = process.env.VUE_APP_SPARKAI_APPID;
 let apiKey = process.env.VUE_APP_SPARKAI_KEY;
 let apiSecret = process.env.VUE_APP_SPARKAI_SECRET;
-console.log(appId, apiKey, apiSecret)
 let sparkWS = null;
 let replys = ref("");
 let currentMessage = ref(""); //输入框信息
@@ -232,6 +231,9 @@ const resend = () => {
   connectWebSocket();
   currentMessage.value = "";
 }
+const clearChat = () => {
+  messages.value = [];
+}
 const newChat = () => {
   localStorage.removeItem("history");
   location.reload();
@@ -254,9 +256,10 @@ const delMessage = () => {
 
 
 <style scoped>
-.top{
-  margin:10px auto;
+.top {
+  margin: 10px auto;
 }
+
 .reply-left {
   display: flex;
   width: 47%;
